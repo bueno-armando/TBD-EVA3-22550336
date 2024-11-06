@@ -1,0 +1,131 @@
+╭─senorbuen0@Trimethy in repo: TBD-EVA3-22550336 on  main:master as 🧙 took 35s
+╰─λ sudo mysql -u root -p
+mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 70
+Server version: 11.5.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE tbd_eva3;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [(none)]> USE tbd_eva3;
+Database changed
+MariaDB [tbd_eva3]> SELECT comparar_numeros(3,2);
++-----------------------+
+| comparar_numeros(3,2) |
++-----------------------+
+| MAYOR                 |
++-----------------------+
+1 row in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SELECT comparar_numeros(2,2);
++-----------------------+
+| comparar_numeros(2,2) |
++-----------------------+
+| IGUAL                 |
++-----------------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT comparar_numeros(2,3);
++-----------------------+
+| comparar_numeros(2,3) |
++-----------------------+
+| MENOR                 |
++-----------------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT MOD(6,3);
++----------+
+| MOD(6,3) |
++----------+
+|        0 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT MOD(5,3);
++----------+
+| MOD(5,3) |
++----------+
+|        2 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT es_par(10);
++------------+
+| es_par(10) |
++------------+
+| ES PAR     |
++------------+
+1 row in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SELECT es_par(11);
++------------+
+| es_par(11) |
++------------+
+| ES IMPAR   |
++------------+
+1 row in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SELECT es_par(12);
++------------+
+| es_par(12) |
++------------+
+| ES PAR     |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT dia_semana(1);
++---------------+
+| dia_semana(1) |
++---------------+
+| Domingo       |
++---------------+
+1 row in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SELECT dia_semana(7);
++---------------+
+| dia_semana(7) |
++---------------+
+| Sábado        |
++---------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT dia_semana(6);
++---------------+
+| dia_semana(6) |
++---------------+
+| Viernes       |
++---------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT celsius_to_kelvin(10.8);
++-------------------------+
+| celsius_to_kelvin(10.8) |
++-------------------------+
+|                  283.80 |
++-------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SELECT celsius_to_fahrenheit(10.8);
++-----------------------------+
+| celsius_to_fahrenheit(10.8) |
++-----------------------------+
+|                       51.44 |
++-----------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SELECT kelvin_to_celsius(301.5);
++--------------------------+
+| kelvin_to_celsius(301.5) |
++--------------------------+
+|                    28.50 |
++--------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> exit;
+Bye
