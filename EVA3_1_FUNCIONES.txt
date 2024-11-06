@@ -1,0 +1,87 @@
+╭─senorbuen0@Trimethy in repo: TBD-EVA3-22550336 on  master
+╰─λ sudo mysql -u root -p
+[sudo] password for senorbuen0:
+Just what do you think you're doing Dave?
+[sudo] password for senorbuen0:
+mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 68
+Server version: 11.5.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE Empresa;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [Empresa]> SHOW TABLES;
++-------------------+
+| Tables_in_Empresa |
++-------------------+
+| countries         |
+| departments       |
+| employees         |
+| job_history       |
+| jobs              |
+| locations         |
+| prueba            |
+| regions           |
++-------------------+
+8 rows in set (0.000 sec)
+
+MariaDB [Empresa]> SELECT COUNT(*) FROM countries;
++----------+
+| COUNT(*) |
++----------+
+|       27 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [Empresa]> SELECT return_one();
++--------------+
+| return_one() |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.000 sec)
+
+MariaDB [Empresa]> SELECT show_msg("Hello world");
++-------------------------+
+| show_msg("Hello world") |
++-------------------------+
+| TU MENSAJE: Hello world |
++-------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Empresa]> SELCT sum_of_two(5,10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELCT sum_of_two(5,10)' at line 1
+MariaDB [Empresa]> SELECT sum_of_two(5,10);
++------------------+
+| sum_of_two(5,10) |
++------------------+
+|               15 |
++------------------+
+1 row in set (0.000 sec)
+
+MariaDB [Empresa]> SELECT sum_of_two(89,99);
++-------------------+
+| sum_of_two(89,99) |
++-------------------+
+|               188 |
++-------------------+
+1 row in set (0.000 sec)
+
+MariaDB [Empresa]> SELECT sum_of_two(89,5);
++------------------+
+| sum_of_two(89,5) |
++------------------+
+|               94 |
++------------------+
+1 row in set (0.000 sec)
+
+MariaDB [Empresa]> exit;
+Bye

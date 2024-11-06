@@ -1,0 +1,10 @@
+DELIMITER $$
+CREATE FUNCTION sum_of_two(a INT, b INT)
+RETURNS INT DETERMINISTIC
+BEGIN
+	DECLARE res INT;
+    SET res = a + b;
+    RETURN res;
+END$$
+DELIMITER ;
+	
