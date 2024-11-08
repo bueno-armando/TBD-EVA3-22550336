@@ -1,0 +1,360 @@
+╭─senorbuen0@Trimethy in repo: TBD-EVA3-22550336 on  main took 1s
+╰─λ sudo mysql -u root -p
+[sudo] password for senorbuen0:
+I'm very sorry, but I'm not allowed to argue unless you've paid.
+[sudo] password for senorbuen0:
+mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 78
+Server version: 11.5.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE Empresa;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [Empresa]> SHOW TABLES;
++-------------------+
+| Tables_in_Empresa |
++-------------------+
+| countries         |
+| departments       |
+| employees         |
+| job_history       |
+| jobs              |
+| locations         |
+| prueba            |
+| regions           |
++-------------------+
+8 rows in set (0.000 sec)
+
+MariaDB [Empresa]> SELECT dayofweek('2008-06-15');
++-------------------------+
+| dayofweek('2008-06-15') |
++-------------------------+
+|                       1 |
++-------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [Empresa]> SELECT dia_semana('2008-06-15');
+ERROR 1339 (20000): Case not found for CASE statement
+MariaDB [Empresa]> SELECT dia_semana('2008-06-15');
+ERROR 1339 (20000): Case not found for CASE statement
+MariaDB [Empresa]> SELECT dia_semana('2008-06-15');
++--------------------------+
+| dia_semana('2008-06-15') |
++--------------------------+
+| DOMINGO                  |
++--------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Empresa]> SELECT employee_id, first_name, last_name,
+-> hire_date, dia_semana(hire_date) FROM employees;
++-------------+-------------+-------------+------------+-----------------------+
+| employee_id | first_name  | last_name   | hire_date  | dia_semana(hire_date) |
++-------------+-------------+-------------+------------+-----------------------+
+|         100 | Steven      | King        | 1987-06-17 | MIERCOLES             |
+|         101 | Neena       | Kochhar     | 1987-06-18 | JUEVES                |
+|         102 | Lex         | De Haan     | 1987-06-19 | VIERNES               |
+|         103 | Alexander   | Hunold      | 1987-06-20 | SABADO                |
+|         104 | Bruce       | Ernst       | 1987-06-21 | DOMINGO               |
+|         105 | David       | Austin      | 1987-06-22 | LUNES                 |
+|         106 | Valli       | Pataballa   | 1987-06-23 | MARTES                |
+|         107 | Diana       | Lorentz     | 1987-06-24 | MIERCOLES             |
+|         108 | Nancy       | Greenberg   | 1987-06-25 | JUEVES                |
+|         109 | Daniel      | Faviet      | 1987-06-26 | VIERNES               |
+|         110 | John        | Chen        | 1987-06-27 | SABADO                |
+|         111 | Ismael      | Sciarra     | 1987-06-28 | DOMINGO               |
+|         112 | Jose Manuel | Urman       | 1987-06-29 | LUNES                 |
+|         113 | Luis        | Popp        | 1987-06-30 | MARTES                |
+|         114 | Den         | Raphaely    | 1987-07-01 | MIERCOLES             |
+|         115 | Alexander   | Khoo        | 1987-07-02 | JUEVES                |
+|         116 | Shelli      | Baida       | 1987-07-03 | VIERNES               |
+|         117 | Sigal       | Tobias      | 1987-07-04 | SABADO                |
+|         118 | Guy         | Himuro      | 1987-07-05 | DOMINGO               |
+|         119 | Karen       | Colmenares  | 1987-07-06 | LUNES                 |
+|         120 | Matthew     | Weiss       | 1987-07-07 | MARTES                |
+|         121 | Adam        | Fripp       | 1987-07-08 | MIERCOLES             |
+|         122 | Payam       | Kaufling    | 1987-07-09 | JUEVES                |
+|         123 | Shanta      | Vollman     | 1987-07-10 | VIERNES               |
+|         124 | Kevin       | Mourgos     | 1987-07-11 | SABADO                |
+|         125 | Julia       | Nayer       | 1987-07-12 | DOMINGO               |
+|         126 | Irene       | Mikkilineni | 1987-07-13 | LUNES                 |
+|         127 | James       | Landry      | 1987-07-14 | MARTES                |
+|         128 | Steven      | Markle      | 1987-07-15 | MIERCOLES             |
+|         129 | Laura       | Bissot      | 1987-07-16 | JUEVES                |
+|         130 | Mozhe       | Atkinson    | 1987-07-17 | VIERNES               |
+|         131 | James       | Marlow      | 1987-07-18 | SABADO                |
+|         132 | TJ          | Olson       | 1987-07-19 | DOMINGO               |
+|         133 | Jason       | Mallin      | 1987-07-20 | LUNES                 |
+|         134 | Michael     | Rogers      | 1987-07-21 | MARTES                |
+|         135 | Ki          | Gee         | 1987-07-22 | MIERCOLES             |
+|         136 | Hazel       | Philtanker  | 1987-07-23 | JUEVES                |
+|         137 | Renske      | Ladwig      | 1987-07-24 | VIERNES               |
+|         138 | Stephen     | Stiles      | 1987-07-25 | SABADO                |
+|         139 | John        | Seo         | 1987-07-26 | DOMINGO               |
+|         140 | Joshua      | Patel       | 1987-07-27 | LUNES                 |
+|         141 | Trenna      | Rajs        | 1987-07-28 | MARTES                |
+|         142 | Curtis      | Davies      | 1987-07-29 | MIERCOLES             |
+|         143 | Randall     | Matos       | 1987-07-30 | JUEVES                |
+|         144 | Peter       | Vargas      | 1987-07-31 | VIERNES               |
+|         145 | John        | Russell     | 1987-08-01 | SABADO                |
+|         146 | Karen       | Partners    | 1987-08-02 | DOMINGO               |
+|         147 | Alberto     | Errazuriz   | 1987-08-03 | LUNES                 |
+|         148 | Gerald      | Cambrault   | 1987-08-04 | MARTES                |
+|         149 | Eleni       | Zlotkey     | 1987-08-05 | MIERCOLES             |
+|         150 | Peter       | Tucker      | 1987-08-06 | JUEVES                |
+|         151 | David       | Bernstein   | 1987-08-07 | VIERNES               |
+|         152 | Peter       | Hall        | 1987-08-08 | SABADO                |
+|         153 | Christopher | Olsen       | 1987-08-09 | DOMINGO               |
+|         154 | Nanette     | Cambrault   | 1987-08-10 | LUNES                 |
+|         155 | Oliver      | Tuvault     | 1987-08-11 | MARTES                |
+|         156 | Janette     | King        | 1987-08-12 | MIERCOLES             |
+|         157 | Patrick     | Sully       | 1987-08-13 | JUEVES                |
+|         158 | Allan       | McEwen      | 1987-08-14 | VIERNES               |
+|         159 | Lindsey     | Smith       | 1987-08-15 | SABADO                |
+|         160 | Louise      | Doran       | 1987-08-16 | DOMINGO               |
+|         161 | Sarath      | Sewall      | 1987-08-17 | LUNES                 |
+|         162 | Clara       | Vishney     | 1987-08-18 | MARTES                |
+|         163 | Danielle    | Greene      | 1987-08-19 | MIERCOLES             |
+|         164 | Mattea      | Marvins     | 1987-08-20 | JUEVES                |
+|         165 | David       | Lee         | 1987-08-21 | VIERNES               |
+|         166 | Sundar      | Ande        | 1987-08-22 | SABADO                |
+|         167 | Amit        | Banda       | 1987-08-23 | DOMINGO               |
+|         168 | Lisa        | Ozer        | 1987-08-24 | LUNES                 |
+|         169 | Harrison    | Bloom       | 1987-08-25 | MARTES                |
+|         170 | Tayler      | Fox         | 1987-08-26 | MIERCOLES             |
+|         171 | William     | Smith       | 1987-08-27 | JUEVES                |
+|         172 | Elizabeth   | Bates       | 1987-08-28 | VIERNES               |
+|         173 | Sundita     | Kumar       | 1987-08-29 | SABADO                |
+|         174 | Ellen       | Abel        | 1987-08-30 | DOMINGO               |
+|         175 | Alyssa      | Hutton      | 1987-08-31 | LUNES                 |
+|         176 | Jonathon    | Taylor      | 1987-09-01 | MARTES                |
+|         177 | Jack        | Livingston  | 1987-09-02 | MIERCOLES             |
+|         178 | Kimberely   | Grant       | 1987-09-03 | JUEVES                |
+|         179 | Charles     | Johnson     | 1987-09-04 | VIERNES               |
+|         180 | Winston     | Taylor      | 1987-09-05 | SABADO                |
+|         181 | Jean        | Fleaur      | 1987-09-06 | DOMINGO               |
+|         182 | Martha      | Sullivan    | 1987-09-07 | LUNES                 |
+|         183 | Girard      | Geoni       | 1987-09-08 | MARTES                |
+|         184 | Nandita     | Sarchand    | 1987-09-09 | MIERCOLES             |
+|         185 | Alexis      | Bull        | 1987-09-10 | JUEVES                |
+|         186 | Julia       | Dellinger   | 1987-09-11 | VIERNES               |
+|         187 | Anthony     | Cabrio      | 1987-09-12 | SABADO                |
+|         188 | Kelly       | Chung       | 1987-09-13 | DOMINGO               |
+|         189 | Jennifer    | Dilly       | 1987-09-14 | LUNES                 |
+|         190 | Timothy     | Gates       | 1987-09-15 | MARTES                |
+|         191 | Randall     | Perkins     | 1987-09-16 | MIERCOLES             |
+|         192 | Sarah       | Bell        | 1987-09-17 | JUEVES                |
+|         193 | Britney     | Everett     | 1987-09-18 | VIERNES               |
+|         194 | Samuel      | McCain      | 1987-09-19 | SABADO                |
+|         195 | Vance       | Jones       | 1987-09-20 | DOMINGO               |
+|         196 | Alana       | Walsh       | 1987-09-21 | LUNES                 |
+|         197 | Kevin       | Feeney      | 1987-09-22 | MARTES                |
+|         198 | Donald      | OConnell    | 1987-09-23 | MIERCOLES             |
+|         199 | Douglas     | Grant       | 1987-09-24 | JUEVES                |
+|         200 | Jennifer    | Whalen      | 1987-09-25 | VIERNES               |
+|         201 | Michael     | Hartstein   | 1987-09-26 | SABADO                |
+|         202 | Pat         | Fay         | 1987-09-27 | DOMINGO               |
+|         203 | Susan       | Mavris      | 1987-09-28 | LUNES                 |
+|         204 | Hermann     | Baer        | 1987-09-29 | MARTES                |
+|         205 | Shelley     | Higgins     | 1987-09-30 | MIERCOLES             |
+|         206 | William     | Gietz       | 1987-10-01 | JUEVES                |
++-------------+-------------+-------------+------------+-----------------------+
+107 rows in set (0.002 sec)
+
+MariaDB [Empresa]> SELECT CONCAT("mi", "prueba");
++------------------------+
+| CONCAT("mi", "prueba") |
++------------------------+
+| miprueba               |
++------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [Empresa]> SELECT generar_correo("John", "Doe", "HR");
+ERROR 1305 (42000): FUNCTION Empresa.generar_correo does not exist
+MariaDB [Empresa]> SELECT generar_correo("John", "Doe", "HR");
++-------------------------------------+
+| generar_correo("John", "Doe", "HR") |
++-------------------------------------+
+| John.Doe@HR.com                     |
++-------------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Empresa]> DESC employee;
+ERROR 1146 (42S02): Table 'Empresa.employee' doesn't exist
+MariaDB [Empresa]> SHOW TABLES;
++-------------------+
+| Tables_in_Empresa |
++-------------------+
+| countries         |
+| departments       |
+| employees         |
+| job_history       |
+| jobs              |
+| locations         |
+| prueba            |
+| regions           |
++-------------------+
+8 rows in set (0.000 sec)
+
+MariaDB [Empresa]> DESC employees;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| EMPLOYEE_ID    | decimal(6,0) | NO   | PRI | 0       |       |
+| FIRST_NAME     | varchar(20)  | YES  |     | NULL    |       |
+| LAST_NAME      | varchar(25)  | NO   | MUL | NULL    |       |
+| EMAIL          | varchar(25)  | NO   | UNI | NULL    |       |
+| PHONE_NUMBER   | varchar(20)  | YES  |     | NULL    |       |
+| HIRE_DATE      | date         | NO   |     | NULL    |       |
+| JOB_ID         | varchar(10)  | NO   | MUL | NULL    |       |
+| SALARY         | decimal(8,2) | YES  |     | NULL    |       |
+| COMMISSION_PCT | decimal(2,2) | YES  |     | NULL    |       |
+| MANAGER_ID     | decimal(6,0) | YES  | MUL | NULL    |       |
+| DEPARTMENT_ID  | decimal(4,0) | YES  | MUL | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+11 rows in set (0.001 sec)
+
+MariaDB [Empresa]> DESC departments;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| DEPARTMENT_ID   | decimal(4,0) | NO   | PRI | 0       |       |
+| DEPARTMENT_NAME | varchar(30)  | NO   |     | NULL    |       |
+| MANAGER_ID      | decimal(6,0) | YES  | MUL | NULL    |       |
+| LOCATION_ID     | decimal(4,0) | YES  | MUL | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+4 rows in set (0.001 sec)
+
+MariaDB [Empresa]> SELECT a.employee_id, a.first_name, a.last_name, b.department_name
+-> FROM employees a
+-> INNER JOIN departments b
+-> ON a.department_id = b.department_id
+-> \c
+MariaDB [Empresa]> SELECT a.employee_id, a.first_name, a.last_name, b.department_name,
+-> generar_coreo(a.first_name, a.last_name, b.department_name)
+-> FROM employees a
+-> INNER JOIN departments b
+-> ON a.department_id = b.department_id;
+ERROR 1305 (42000): FUNCTION Empresa.generar_coreo does not exist
+MariaDB [Empresa]> SELECT a.employee_id, a.first_name, a.last_name, b.department_name, generar_correo(a.first_name, a.last_name, b.department_name) FROM employees a INNER JOIN departments b ON a.department_id = b.department_id;
++-------------+-------------+-------------+------------------+--------------------------------------------------------------+
+| employee_id | first_name  | last_name   | department_name  | generar_correo(a.first_name, a.last_name, b.department_name) |
++-------------+-------------+-------------+------------------+--------------------------------------------------------------+
+|         100 | Steven      | King        | Executive        | Steven.King@Executive.com                                    |
+|         101 | Neena       | Kochhar     | Executive        | Neena.Kochhar@Executive.com                                  |
+|         102 | Lex         | De Haan     | Executive        | Lex.De Haan@Executive.com                                    |
+|         103 | Alexander   | Hunold      | IT               | Alexander.Hunold@IT.com                                      |
+|         104 | Bruce       | Ernst       | IT               | Bruce.Ernst@IT.com                                           |
+|         105 | David       | Austin      | IT               | David.Austin@IT.com                                          |
+|         106 | Valli       | Pataballa   | IT               | Valli.Pataballa@IT.com                                       |
+|         107 | Diana       | Lorentz     | IT               | Diana.Lorentz@IT.com                                         |
+|         108 | Nancy       | Greenberg   | Finance          | Nancy.Greenberg@Finance.com                                  |
+|         109 | Daniel      | Faviet      | Finance          | Daniel.Faviet@Finance.com                                    |
+|         110 | John        | Chen        | Finance          | John.Chen@Finance.com                                        |
+|         111 | Ismael      | Sciarra     | Finance          | Ismael.Sciarra@Finance.com                                   |
+|         112 | Jose Manuel | Urman       | Finance          | Jose Manuel.Urman@Finance.com                                |
+|         113 | Luis        | Popp        | Finance          | Luis.Popp@Finance.com                                        |
+|         114 | Den         | Raphaely    | Purchasing       | Den.Raphaely@Purchasing.com                                  |
+|         115 | Alexander   | Khoo        | Purchasing       | Alexander.Khoo@Purchasing.com                                |
+|         116 | Shelli      | Baida       | Purchasing       | Shelli.Baida@Purchasing.com                                  |
+|         117 | Sigal       | Tobias      | Purchasing       | Sigal.Tobias@Purchasing.com                                  |
+|         118 | Guy         | Himuro      | Purchasing       | Guy.Himuro@Purchasing.com                                    |
+|         119 | Karen       | Colmenares  | Purchasing       | Karen.Colmenares@Purchasing.com                              |
+|         120 | Matthew     | Weiss       | Shipping         | Matthew.Weiss@Shipping.com                                   |
+|         121 | Adam        | Fripp       | Shipping         | Adam.Fripp@Shipping.com                                      |
+|         122 | Payam       | Kaufling    | Shipping         | Payam.Kaufling@Shipping.com                                  |
+|         123 | Shanta      | Vollman     | Shipping         | Shanta.Vollman@Shipping.com                                  |
+|         124 | Kevin       | Mourgos     | Shipping         | Kevin.Mourgos@Shipping.com                                   |
+|         125 | Julia       | Nayer       | Shipping         | Julia.Nayer@Shipping.com                                     |
+|         126 | Irene       | Mikkilineni | Shipping         | Irene.Mikkilineni@Shipping.com                               |
+|         127 | James       | Landry      | Shipping         | James.Landry@Shipping.com                                    |
+|         128 | Steven      | Markle      | Shipping         | Steven.Markle@Shipping.com                                   |
+|         129 | Laura       | Bissot      | Shipping         | Laura.Bissot@Shipping.com                                    |
+|         130 | Mozhe       | Atkinson    | Shipping         | Mozhe.Atkinson@Shipping.com                                  |
+|         131 | James       | Marlow      | Shipping         | James.Marlow@Shipping.com                                    |
+|         132 | TJ          | Olson       | Shipping         | TJ.Olson@Shipping.com                                        |
+|         133 | Jason       | Mallin      | Shipping         | Jason.Mallin@Shipping.com                                    |
+|         134 | Michael     | Rogers      | Shipping         | Michael.Rogers@Shipping.com                                  |
+|         135 | Ki          | Gee         | Shipping         | Ki.Gee@Shipping.com                                          |
+|         136 | Hazel       | Philtanker  | Shipping         | Hazel.Philtanker@Shipping.com                                |
+|         137 | Renske      | Ladwig      | Shipping         | Renske.Ladwig@Shipping.com                                   |
+|         138 | Stephen     | Stiles      | Shipping         | Stephen.Stiles@Shipping.com                                  |
+|         139 | John        | Seo         | Shipping         | John.Seo@Shipping.com                                        |
+|         140 | Joshua      | Patel       | Shipping         | Joshua.Patel@Shipping.com                                    |
+|         141 | Trenna      | Rajs        | Shipping         | Trenna.Rajs@Shipping.com                                     |
+|         142 | Curtis      | Davies      | Shipping         | Curtis.Davies@Shipping.com                                   |
+|         143 | Randall     | Matos       | Shipping         | Randall.Matos@Shipping.com                                   |
+|         144 | Peter       | Vargas      | Shipping         | Peter.Vargas@Shipping.com                                    |
+|         145 | John        | Russell     | Sales            | John.Russell@Sales.com                                       |
+|         146 | Karen       | Partners    | Sales            | Karen.Partners@Sales.com                                     |
+|         147 | Alberto     | Errazuriz   | Sales            | Alberto.Errazuriz@Sales.com                                  |
+|         148 | Gerald      | Cambrault   | Sales            | Gerald.Cambrault@Sales.com                                   |
+|         149 | Eleni       | Zlotkey     | Sales            | Eleni.Zlotkey@Sales.com                                      |
+|         150 | Peter       | Tucker      | Sales            | Peter.Tucker@Sales.com                                       |
+|         151 | David       | Bernstein   | Sales            | David.Bernstein@Sales.com                                    |
+|         152 | Peter       | Hall        | Sales            | Peter.Hall@Sales.com                                         |
+|         153 | Christopher | Olsen       | Sales            | Christopher.Olsen@Sales.com                                  |
+|         154 | Nanette     | Cambrault   | Sales            | Nanette.Cambrault@Sales.com                                  |
+|         155 | Oliver      | Tuvault     | Sales            | Oliver.Tuvault@Sales.com                                     |
+|         156 | Janette     | King        | Sales            | Janette.King@Sales.com                                       |
+|         157 | Patrick     | Sully       | Sales            | Patrick.Sully@Sales.com                                      |
+|         158 | Allan       | McEwen      | Sales            | Allan.McEwen@Sales.com                                       |
+|         159 | Lindsey     | Smith       | Sales            | Lindsey.Smith@Sales.com                                      |
+|         160 | Louise      | Doran       | Sales            | Louise.Doran@Sales.com                                       |
+|         161 | Sarath      | Sewall      | Sales            | Sarath.Sewall@Sales.com                                      |
+|         162 | Clara       | Vishney     | Sales            | Clara.Vishney@Sales.com                                      |
+|         163 | Danielle    | Greene      | Sales            | Danielle.Greene@Sales.com                                    |
+|         164 | Mattea      | Marvins     | Sales            | Mattea.Marvins@Sales.com                                     |
+|         165 | David       | Lee         | Sales            | David.Lee@Sales.com                                          |
+|         166 | Sundar      | Ande        | Sales            | Sundar.Ande@Sales.com                                        |
+|         167 | Amit        | Banda       | Sales            | Amit.Banda@Sales.com                                         |
+|         168 | Lisa        | Ozer        | Sales            | Lisa.Ozer@Sales.com                                          |
+|         169 | Harrison    | Bloom       | Sales            | Harrison.Bloom@Sales.com                                     |
+|         170 | Tayler      | Fox         | Sales            | Tayler.Fox@Sales.com                                         |
+|         171 | William     | Smith       | Sales            | William.Smith@Sales.com                                      |
+|         172 | Elizabeth   | Bates       | Sales            | Elizabeth.Bates@Sales.com                                    |
+|         173 | Sundita     | Kumar       | Sales            | Sundita.Kumar@Sales.com                                      |
+|         174 | Ellen       | Abel        | Sales            | Ellen.Abel@Sales.com                                         |
+|         175 | Alyssa      | Hutton      | Sales            | Alyssa.Hutton@Sales.com                                      |
+|         176 | Jonathon    | Taylor      | Sales            | Jonathon.Taylor@Sales.com                                    |
+|         177 | Jack        | Livingston  | Sales            | Jack.Livingston@Sales.com                                    |
+|         179 | Charles     | Johnson     | Sales            | Charles.Johnson@Sales.com                                    |
+|         180 | Winston     | Taylor      | Shipping         | Winston.Taylor@Shipping.com                                  |
+|         181 | Jean        | Fleaur      | Shipping         | Jean.Fleaur@Shipping.com                                     |
+|         182 | Martha      | Sullivan    | Shipping         | Martha.Sullivan@Shipping.com                                 |
+|         183 | Girard      | Geoni       | Shipping         | Girard.Geoni@Shipping.com                                    |
+|         184 | Nandita     | Sarchand    | Shipping         | Nandita.Sarchand@Shipping.com                                |
+|         185 | Alexis      | Bull        | Shipping         | Alexis.Bull@Shipping.com                                     |
+|         186 | Julia       | Dellinger   | Shipping         | Julia.Dellinger@Shipping.com                                 |
+|         187 | Anthony     | Cabrio      | Shipping         | Anthony.Cabrio@Shipping.com                                  |
+|         188 | Kelly       | Chung       | Shipping         | Kelly.Chung@Shipping.com                                     |
+|         189 | Jennifer    | Dilly       | Shipping         | Jennifer.Dilly@Shipping.com                                  |
+|         190 | Timothy     | Gates       | Shipping         | Timothy.Gates@Shipping.com                                   |
+|         191 | Randall     | Perkins     | Shipping         | Randall.Perkins@Shipping.com                                 |
+|         192 | Sarah       | Bell        | Shipping         | Sarah.Bell@Shipping.com                                      |
+|         193 | Britney     | Everett     | Shipping         | Britney.Everett@Shipping.com                                 |
+|         194 | Samuel      | McCain      | Shipping         | Samuel.McCain@Shipping.com                                   |
+|         195 | Vance       | Jones       | Shipping         | Vance.Jones@Shipping.com                                     |
+|         196 | Alana       | Walsh       | Shipping         | Alana.Walsh@Shipping.com                                     |
+|         197 | Kevin       | Feeney      | Shipping         | Kevin.Feeney@Shipping.com                                    |
+|         198 | Donald      | OConnell    | Shipping         | Donald.OConnell@Shipping.com                                 |
+|         199 | Douglas     | Grant       | Shipping         | Douglas.Grant@Shipping.com                                   |
+|         200 | Jennifer    | Whalen      | Administration   | Jennifer.Whalen@Administration.com                           |
+|         201 | Michael     | Hartstein   | Marketing        | Michael.Hartstein@Marketing.com                              |
+|         202 | Pat         | Fay         | Marketing        | Pat.Fay@Marketing.com                                        |
+|         203 | Susan       | Mavris      | Human Resources  | Susan.Mavris@Human Resources.com                             |
+|         204 | Hermann     | Baer        | Public Relations | Hermann.Baer@Public Relations.com                            |
+|         205 | Shelley     | Higgins     | Accounting       | Shelley.Higgins@Accounting.com                               |
+|         206 | William     | Gietz       | Accounting       | William.Gietz@Accounting.com                                 |
++-------------+-------------+-------------+------------------+--------------------------------------------------------------+
+106 rows in set (0.001 sec)
+
+MariaDB [Empresa]> exit;
+Bye
