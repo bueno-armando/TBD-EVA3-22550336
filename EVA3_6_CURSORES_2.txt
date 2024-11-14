@@ -1,0 +1,33 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS contar_paises;
+
+CREATE PROCEDURE contar_paises(OUT cont INT)
+
+BEGIN
+
+	DECLARE terminar INT DEFAULT FALSE;
+    DECLARE id VARCHAR(2);
+    
+-- CURSOR: guarda los datos de una consulta para manejarlos
+	DECLARE cuenta_paises CURSOR FOR
+    SELECT country_id FROM countries; -- consulta a almacenar en el cursor
+    DECLARE CONTINUE HANDLER FOR NOT FOUND
+    
+    BEGIN
+		SET terminar = TRUE; -- salimos del ciclo
+    END;
+    
+    OPEN cuenta_paises;
+    SET cont = 0;
+    contar_p: LOOP
+		FETCH cuenta_paises INTO id;
+        SET cont = cont + 1;
+        IF terminar THEN
+			LEAVE contar_p;
+        END IF;
+    END LOOP;
+    
+END $$
+
+DELIMITER ;

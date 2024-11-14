@@ -1,0 +1,16 @@
+DELIMITER $$
+
+CREATE PROCEDURE insertar_prueba;
+
+BEGIN
+	DECLARE EXIT HANDLER FOR SQLSTATE '23000'
+    -- el error 23000 indica una llave duplicada
+    BEGIN
+		SELECT 'Error: clave duplicada' AS msg;
+    END ;
+    
+    INSERT INTO prueba(id) VALUE (clave);
+    SELECT 'Clave correctamente insertada' AS msg;
+END ;
+
+DELIMITER ;
