@@ -1,0 +1,90 @@
+MariaDB [Empresa]> USE tbd_eva3;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [tbd_eva3]> CREATE TABLE personas(id INT AUTO_INCREMENT PRIMARY KEY,
+-> nombre VARCHAR(30) NOT NULL,
+-> apellido_pat VARCHAR(30) NOT NULL,
+-> apellido_mat VARCHAR(30) DEFAULT 'X',
+-> fecha_nac DATE,
+-> clave_rfc VARCHAR(50));
+Query OK, 0 rows affected (0.016 sec)
+
+MariaDB [tbd_eva3]> SHOW CREATE personas;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version forthe right syntax to use near 'personas' at line 1
+MariaDB [tbd_eva3]> SHOW CREATE TABLE personas;
++----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table    | Create Table                                                                                                     |
++----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| personas | CREATE TABLE `personas` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`nombre` varchar(30) NOT NULL,
+`apellido_pat` varchar(30) NOT NULL,
+`apellido_mat` varchar(30) DEFAULT 'X',
+`fecha_nac` date DEFAULT NULL,
+`clave_rfc` varchar(50) DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci |
++----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> DESC personas;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| id           | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nombre       | varchar(30) | NO   |     | NULL    |                |
+| apellido_pat | varchar(30) | NO   |     | NULL    |                |
+| apellido_mat | varchar(30) | YES  |     | X       |                |
+| fecha_nac    | date        | YES  |     | NULL    |                |
+| clave_rfc    | varchar(50) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.001 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO personas(nombre, apellido_pat, apellido_mat, fecha_nac, clave_rfc) VALUES
+-> \c
+MariaDB [tbd_eva3]> INSERT INTO personas(nombre, apellido_pat, fecha_nac, clave_rfc) VALUES
+-> ('Josefa', 'Ortiz'\c
+MariaDB [tbd_eva3]> INSERT INTO personas(nombre, apellido_pat, fecha_nac) VALUES ('Josefa', 'Ortiz', '1111-11-11');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [tbd_eva3]> SELECT * FROM personas;
++----+--------+--------------+--------------+------------+-----------+
+| id | nombre | apellido_pat | apellido_mat | fecha_nac  | clave_rfc |
++----+--------+--------------+--------------+------------+-----------+
+|  1 | Josefa | Ortiz        | X            | 1111-11-11 | NULL      |
++----+--------+--------------+--------------+------------+-----------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO personas(nombre, apellido_pat, apellido_mat, fecha_nac) VALUES
+-> ('Juan', 'Osorio', 'Fuentes', '1894-07-28'),
+-> ('Robert', 'Oppenheimer', 'Pinhas', '1904-04-12'),
+-> ('Carlos', 'Guzman', 'Herrera', '1999-12-13'),
+-> ('Miguel', 'Perez', 'Lopez', '2004-04-05');
+Query OK, 4 rows affected (0.003 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [tbd_eva3]> ALTER TABLE personas MODIFY clave_rfc VARCHAR(13);
+Query OK, 5 rows affected (0.039 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [tbd_eva3]> CALL clave_rfc();
+ERROR 1364 (HY000): Field 'nombre' doesn't have a default value
+MariaDB [tbd_eva3]> CALL clave_rfc();
+Query OK, 5 rows affected (0.010 sec)
+
+MariaDB [tbd_eva3]> SELECT * FROM personas;
++----+--------+--------------+--------------+------------+-----------+
+| id | nombre | apellido_pat | apellido_mat | fecha_nac  | clave_rfc |
++----+--------+--------------+--------------+------------+-----------+
+|  1 | Josefa | Ortiz        | X            | 1111-11-11 | ORXJ11123 |
+|  2 | Juan   | Osorio       | Fuentes      | 1894-07-28 | OSFJ94123 |
+|  3 | Robert | Oppenheimer  | Pinhas       | 1904-04-12 | OPPR04123 |
+|  4 | Carlos | Guzman       | Herrera      | 1999-12-13 | GUHC99123 |
+|  5 | Miguel | Perez        | Lopez        | 2004-04-05 | PELM04123 |
++----+--------+--------------+--------------+------------+-----------+
+5 rows in set (0.000 sec)
+
+MariaDB [tbd_eva3]> EXIT;
+Bye
