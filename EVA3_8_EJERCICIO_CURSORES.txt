@@ -88,3 +88,4 @@ MariaDB [tbd_eva3]> SELECT * FROM personas;
 
 MariaDB [tbd_eva3]> EXIT;
 Bye
+
