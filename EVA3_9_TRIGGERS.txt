@@ -1,0 +1,260 @@
+╭─senorbuen0@Trimethy in repo: TBD-EVA3-22550336 on  main as 🧙 took 2s
+[🔴] × sudo mysql -u root -p
+mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 4
+Server version: 11.6.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE tbd_eva3;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [tbd_eva3]> CREATE TABLE pruebas(
+-> id INT,
+-> nombre VARCHAR(50),
+-> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version forthe right syntax to use near ')' at line 4
+MariaDB [tbd_eva3]> CREATE TABLE pruebas( id INT, nombre VARCHAR(50));
+Query OK, 0 rows affected (0.014 sec)
+
+MariaDB [tbd_eva3]> DESC pruebas;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int(11)     | YES  |     | NULL    |       |
+| nombre | varchar(50) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SET mensaje = '';
+ERROR 1193 (HY000): Unknown system variable 'mensaje'
+MariaDB [tbd_eva3]> SET @mensaje = '';
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT @mensaje;
++----------+
+| @mensaje |
++----------+
+|          |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO pruebas
+-> VALUE(5, "HOLA MUNDO");
+Query OK, 1 row affected (0.015 sec)
+
+MariaDB [tbd_eva3]> SELECT @mensaje;
++--------------------------+
+| @mensaje                 |
++--------------------------+
+| DATO INSERTADO CON EXITO |
++--------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> DESC productos;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int(11)     | YES  |     | NULL    |       |
+| nombre | varchar(50) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SET @cont = 0;
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT @cont;
++-------+
+| @cont |
++-------+
+|     0 |
++-------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO Prodcutos
+-> VALUE(10, "papas");
+ERROR 1146 (42S02): Table 'tbd_eva3.Prodcutos' doesn't exist
+MariaDB [tbd_eva3]> INSERT INTO prodcutos VALUE(10, "papas");
+ERROR 1146 (42S02): Table 'tbd_eva3.prodcutos' doesn't exist
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> SELECT @cont;
++-------+
+| @cont |
++-------+
+|     1 |
++-------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> SELECT @cont;
++-------+
+| @cont |
++-------+
+|     2 |
++-------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [tbd_eva3]> SELECT @cont;
++-------+
+| @cont |
++-------+
+|     3 |
++-------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO productos VALUE(10, "papas");
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> SELECT @cont;
++-------+
+| @cont |
++-------+
+|    11 |
++-------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SELECT * FROM pruebas;
++------+------------+
+| id   | nombre     |
++------+------------+
+|    5 | HOLA MUNDO |
++------+------------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO pruebas
+-> VALUES(6, "xxxxxx"),(7, "yyyyyy"),(8, "lorem ipsum");
+Query OK, 3 rows affected (0.003 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [tbd_eva3]> CREATE TABLE bitacora(
+-> id ITN KEY AUTO_INCREMENT,
+-> \c
+MariaDB [tbd_eva3]> CREATE TABLE bitacora(
+-> id INT KEY AUTO_INCREMENT,
+-> id_modificado INT,
+-> tabla VARCHAR(50),
+-> accion VARCHAR(20));
+Query OK, 0 rows affected (0.015 sec)
+
+MariaDB [tbd_eva3]> DESC pruebas;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int(11)     | YES  |     | NULL    |       |
+| nombre | varchar(50) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [tbd_eva3]> SELECT * FROM pruebas;
++------+-------------+
+| id   | nombre      |
++------+-------------+
+|    5 | HOLA MUNDO  |
+|    6 | xxxxxx      |
+|    7 | yyyyyy      |
+|    8 | lorem ipsum |
++------+-------------+
+4 rows in set (0.000 sec)
+
+MariaDB [tbd_eva3]> DELETE FROM pruebas
+-> WHERE id =5;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> SELECT * FROM bitacora;
++----+---------------+---------+--------+
+| id | id_modificado | tabla   | accion |
++----+---------------+---------+--------+
+|  1 |             5 | pruebas | delete |
++----+---------------+---------+--------+
+1 row in set (0.000 sec)
+
+MariaDB [tbd_eva3]> DELETE FROM pruebas;
+Query OK, 3 rows affected (0.003 sec)
+
+MariaDB [tbd_eva3]> SELECT * FROM bitacora;
++----+---------------+---------+--------+
+| id | id_modificado | tabla   | accion |
++----+---------------+---------+--------+
+|  1 |             5 | pruebas | delete |
+|  2 |             6 | pruebas | delete |
+|  3 |             7 | pruebas | delete |
+|  4 |             8 | pruebas | delete |
++----+---------------+---------+--------+
+4 rows in set (0.000 sec)
+
+MariaDB [tbd_eva3]> SHOW TABLES;
++--------------------+
+| Tables_in_tbd_eva3 |
++--------------------+
+| bitacora           |
+| personas           |
+| productos          |
+| prueba             |
+| pruebas            |
++--------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [tbd_eva3]> DESC personas;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| id           | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nombre       | varchar(30) | NO   |     | NULL    |                |
+| apellido_pat | varchar(30) | NO   |     | NULL    |                |
+| apellido_mat | varchar(30) | YES  |     | X       |                |
+| fecha_nac    | date        | YES  |     | NULL    |                |
+| clave_rfc    | varchar(13) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.001 sec)
+
+MariaDB [tbd_eva3]> INSERT INTO pruebas(id)
+-> VALUE(1);
+ERROR 1305 (42000): FUNCTION tbd_eva3.clave_rfc does not exist
+MariaDB [tbd_eva3]> INSERT INTO pruebas(id) VALUE(1);
+ERROR 1305 (42000): FUNCTION tbd_eva3.clave_rfc does not exist
+MariaDB [tbd_eva3]> INSERT INTO pruebas(id) VALUE(1);
+ERROR 1318 (42000): Incorrect number of arguments for PROCEDURE tbd_eva3.clave_rfc; expected 0, got 1
+MariaDB [tbd_eva3]> INSERT INTO pruebas(id) VALUE(1);
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [tbd_eva3]> SELECT * FROM pruebas;
++------+---------------+
+| id   | nombre        |
++------+---------------+
+|    1 | LOREMIPSUMDOL |
++------+---------------+
+1 row in set (0.000 sec)
